@@ -19,7 +19,7 @@ export function App() {
     const savedContacts = JSON.parse(localStorage.getItem(LS_KEY));
     if (savedContacts) {
       setContacts(savedContacts);
-      //  console.log({ savedContacts });
+       // console.log({ contacts });
     }
   }, []);
 
@@ -44,12 +44,12 @@ export function App() {
     setContacts(contacts.filter(contact => contact.id !== idContact));
   };
  
-  const visibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
+   
+
+    const visibleContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
     );
-  };
+ 
   return (
     <>
       <div>
@@ -60,7 +60,7 @@ export function App() {
         <h2>Contacts</h2>
         <ContactFilter value={filter} onChange={changeFilter} />
         <ContactList
-          contacts={visibleContacts()}
+          contacts={visibleContacts}
           onDeleteContact={deleteContact}
         />
       </div>
