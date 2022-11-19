@@ -3,12 +3,12 @@ import React from 'react';
 import { useState } from 'react';
 import css from './ContactForm.module.css';
 
-export function ContactForm({ formSubmitHandler }) {
+export function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const handleChange = evt => {
-    console.log(formSubmitHandler);
+    
     const { name, value } = evt.currentTarget;
     switch (name) {
       case 'name':
@@ -24,7 +24,7 @@ export function ContactForm({ formSubmitHandler }) {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    formSubmitHandler(name, number);
+    onSubmit(name, number);
      reset();
   };
 
