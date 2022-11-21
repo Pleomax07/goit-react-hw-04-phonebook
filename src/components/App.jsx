@@ -27,7 +27,7 @@ export function App() {
     localStorage.setItem(LS_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
-  const formSubmitHandler = ({ name, number }) => {
+  const formSubmitHandler = (name, number) => {
     const contactName = contacts.map(contact => contact.name);
     if (contactName.includes(name)) {
       return alert(`${name} is already in contacts.`);
